@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "b831fb84-d67a-4de2-bc6d-dc0ffd1f9f8a",
+		"name": "REST service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18992557"
+	},
+	"item": [
+		{
+			"name": "Add geolocation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accessToken",
+						"value": "cc7c399f-aac3-474d-a6d8-46f9ef23929c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deviceId\": \"1\",\r\n    \"latitude\": \"232sdsdsd34\",\r\n    \"longitude\": \"1423412\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{host}}/home/geolocation",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"home",
+						"geolocation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "user",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "password",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/login",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accessToken",
+						"value": "e06f7d04-02b0-4126-b349-9f89efb2659e",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/logout",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all geolocations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accessToken",
+						"value": "cc7c399f-aac3-474d-a6d8-46f9ef23929c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/home/geolocation",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"home",
+						"geolocation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get geolocation by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accessToken",
+						"value": "cc7c399f-aac3-474d-a6d8-46f9ef23929c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{host}}/home/geolocation/:deviceId",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"home",
+						"geolocation",
+						":deviceId"
+					],
+					"variable": [
+						{
+							"key": "deviceId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
