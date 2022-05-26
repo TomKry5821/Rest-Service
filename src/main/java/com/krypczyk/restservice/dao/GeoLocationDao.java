@@ -6,22 +6,23 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Component
-public class GeoLocationDao implements Dao<GeoLocation> {
+public class GeoLocationDao {
 
-    public Optional<GeoLocation> getByDeviceId(String deviceId) {
-        return Optional.of(GeoLocationStorage.getInstance().getStorage().values().stream().filter(g -> g.getDeviceId().equals(deviceId)).findFirst()).get();
+    public GeoLocation getByDeviceId(String deviceId) {
+        return GeoLocationStorage.getInstance().getStorage().get(deviceId);
     }
 
-    @Override
-    public List<GeoLocation> getAll() {
+    public List<GeoLocation> getAllValues() {
         return new ArrayList<>(GeoLocationStorage.getInstance().getStorage().values());
     }
 
-    @Override
-    public void save(GeoLocation geoLocation) {
-        GeoLocationStorage.getInstance().save(geoLocation);
+    public List<String> getAllKeys() {
+        return new ArrayList<>(GeoLocationStorage.getInstance().getStorage().keySet());
+    }
+
+    public void save(GeoLocation geoLocation, String deviceId) {
+        GeoLocationStorage.getInstance().save(geoLocation, deviceId);
     }
 }

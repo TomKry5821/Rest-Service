@@ -6,7 +6,7 @@ import com.krypczyk.restservice.Exception.EmptyParameterException;
 import com.krypczyk.restservice.Exception.InvalidDataException;
 import com.krypczyk.restservice.Exception.NotFoundException;
 import com.krypczyk.restservice.Exception.UnauthorizedException;
-import com.krypczyk.restservice.model.GeoLocation;
+import com.krypczyk.restservice.dto.GeoLocationDto;
 import com.krypczyk.restservice.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,18 +22,18 @@ public class HomeController {
     private HomeService homeService;
 
     @PostMapping("/geolocation")
-    public String saveGeolocationData(@RequestBody GeoLocation geoLocation, @RequestHeader("accessToken") String accessToken) throws UnauthorizedException {
-        this.homeService.saveGeolocation(geoLocation, accessToken);
+    public String saveGeolocationData(@RequestBody GeoLocationDto geoLocationDto, @RequestHeader("accessToken") String accessToken) throws UnauthorizedException {
+        this.homeService.saveGeolocation(geoLocationDto, accessToken);
         return "Data saved successfully!";
     }
 
     @GetMapping("/geolocation")
-    public List<GeoLocation> getAllGeolocations(@RequestHeader("accessToken") String accessToken) throws UnauthorizedException {
+    public List<GeoLocationDto> getAllGeolocations(@RequestHeader("accessToken") String accessToken) throws UnauthorizedException {
         return this.homeService.getAllGeoLocations(accessToken);
     }
 
     @GetMapping("/geolocation/{deviceId}")
-    public GeoLocation getGeoLocationById(@PathVariable("deviceId") String deviceId, @RequestHeader("accessToken") String accessToken) throws EmptyParameterException, NotFoundException, UnauthorizedException {
+    public GeoLocationDto getGeoLocationById(@PathVariable("deviceId") String deviceId, @RequestHeader("accessToken") String accessToken) throws EmptyParameterException, NotFoundException, UnauthorizedException {
         return this.homeService.getGeoLocationById(deviceId, accessToken);
     }
 

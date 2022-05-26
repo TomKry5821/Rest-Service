@@ -8,15 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class UserDao implements Dao<User> {
+public class UserDao {
 
 
-    @Override
     public List<User> getAll() {
         return new ArrayList<>(UserStorage.getInstance().getStorage().values());
     }
 
-    @Override
     public void save(User user) {
         UserStorage.getInstance().save(user);
     }

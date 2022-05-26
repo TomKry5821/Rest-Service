@@ -6,9 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GeoLocationStorage {
-    private static long id = 1;
     private static GeoLocationStorage instance;
-    private Map<Long, GeoLocation> storage;
+    private Map<String, GeoLocation> storage;
 
     private GeoLocationStorage() {
         this.storage = new HashMap<>();
@@ -21,12 +20,11 @@ public class GeoLocationStorage {
         return instance;
     }
 
-    public Map<Long, GeoLocation> getStorage() {
+    public Map<String, GeoLocation> getStorage() {
         return this.storage;
     }
 
-    public void save(GeoLocation geoLocation) {
-        this.storage.put(id, geoLocation);
-        id += 1;
+    public void save(GeoLocation geoLocation, String deviceId) {
+        this.storage.put(deviceId, geoLocation);
     }
 }
