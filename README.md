@@ -29,4 +29,4 @@ All requests except login require an access token in the header, otherwise, you 
 The implemented simplified login mechanism is based on user authentication by means of a token, which is given to the user upon correct login.
 When trying to request without a token or with an invalid token an unauthorized error will be thrown
 
-###Service components have been tested for incorrect data entry and attempts by unauthenticated users to acquire or enter data
+### Service components have been tested for incorrect data entry and attempts by unauthenticated users to acquire or enter data
