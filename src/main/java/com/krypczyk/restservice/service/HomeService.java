@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class HomeService {
@@ -25,7 +26,7 @@ public class HomeService {
         if (!authorizationManager.isAuthorized(accessToken)) {
             throw new UnauthorizedException("Unauthorized user");
         }
-        if (geoLocationDto == null || geoLocationDto.getDeviceId() == null) {
+        if (Objects.isNull(geoLocationDto) || Objects.isNull(geoLocationDto.getDeviceId())) {
             throw new InvalidDataException("Wrong data format");
         }
 
@@ -58,7 +59,7 @@ public class HomeService {
         }
 
         GeoLocation geoLocation = this.geoLocationDao.getByDeviceId(deviceId);
-        if (geoLocation == null) {
+        if (Objects.isNull(geoLocation)) {
             throw new NotFoundException("Could not find geolocation with provided id");
         }
 

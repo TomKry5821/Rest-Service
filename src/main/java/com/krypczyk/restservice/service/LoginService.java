@@ -6,6 +6,7 @@ import com.krypczyk.restservice.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -31,7 +32,7 @@ public class LoginService {
     }
 
     public void logout(String accessToken) {
-        if (accessToken == null || !this.authorizationManager.isAuthorized(accessToken)) {
+        if (Objects.isNull(accessToken) || !this.authorizationManager.isAuthorized(accessToken)) {
             throw new UnauthorizedException("Unauthorized user");
         }
 

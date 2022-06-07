@@ -4,13 +4,8 @@ import java.util.Objects;
 
 public class GeoLocation {
 
-    private String latitude;
-    private String longitude;
-
-    public GeoLocation() {
-        this.latitude = "";
-        this.longitude = "";
-    }
+    private final String latitude;
+    private final String longitude;
 
     public GeoLocation(String latitude, String longitude) {
         this.latitude = latitude;

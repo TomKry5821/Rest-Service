@@ -3,9 +3,9 @@ package com.krypczyk.restservice.dto;
 import java.util.Objects;
 
 public class GeoLocationDto {
-    private String deviceId;
-    private String latitude;
-    private String longitude;
+    private final String deviceId;
+    private final String latitude;
+    private final String longitude;
 
     public GeoLocationDto(String deviceId, String latitude, String longitude) {
         this.deviceId = deviceId;

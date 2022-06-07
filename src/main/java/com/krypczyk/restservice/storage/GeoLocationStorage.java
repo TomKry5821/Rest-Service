@@ -4,6 +4,7 @@ import com.krypczyk.restservice.model.GeoLocation;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class GeoLocationStorage {
     private static GeoLocationStorage instance;
@@ -14,7 +15,7 @@ public class GeoLocationStorage {
     }
 
     public static GeoLocationStorage getInstance() {
-        if (instance == null) {
+        if (Objects.isNull(instance)) {
             instance = new GeoLocationStorage();
         }
         return instance;

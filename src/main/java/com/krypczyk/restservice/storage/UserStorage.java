@@ -4,6 +4,7 @@ import com.krypczyk.restservice.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class UserStorage {
 
@@ -21,7 +22,7 @@ public class UserStorage {
     }
 
     public static UserStorage getInstance() {
-        if (instance == null) {
+        if (Objects.isNull(instance)) {
             instance = new UserStorage();
         }
         return instance;
